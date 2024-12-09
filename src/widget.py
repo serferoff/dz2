@@ -12,3 +12,10 @@ def mask_account_card(info):
         masked_number = card_type + ' **' + card_number[-4:]
 
     return f"{card_type} {masked_number}"
+
+from datetime import datetime
+
+def get_date(date_str):
+    # Преобразуем строку в объект datetime и форматируем его
+    date_obj = datetime.fromisoformat(date_str)
+    return date_obj.strftime("%d.%m.%Y")
