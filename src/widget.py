@@ -12,7 +12,7 @@ def mask_account_card(info: str) -> str:
     :raises ValueError: если номер карты или счета некорректный
     """
     # Разделяем строку на тип и номер
-    parts = info.rsplit(' ', 1)
+    parts: list[str] = info.rsplit(' ', 1)
     if len(parts) != 2:
         raise ValueError("Информация должна содержать тип и номер, разделенные пробелом.")
 
@@ -30,7 +30,7 @@ def mask_account_card(info: str) -> str:
         masked_number: str = get_mask_card_number(card_number)
     # Маскировка для счетов
     else:
-        masked_number = get_mask_account(card_number)
+        masked_number: str = get_mask_account(card_number)
 
     return f"{card_type} {masked_number}"
 
